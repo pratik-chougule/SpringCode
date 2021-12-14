@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:util="http://www.springframework.org/schema/util"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/util
+ http://www.springframework.org/schema/util/spring-util.xsd">
+ 
+
+ <context:annotation-config />
+ <!-- standalone list -->
+ 
+ <util:list list-class="java.util.LinkedList" id="mybestfriends">
+
+    <value>Amar</value>
+     <value>Samir</value>
+      <value>Pratik</value>
+       <value>Sagar</value>
+        <value>Sam</value>
+ </util:list>
+<!-- standalone map -->
+      <util:map map-class="java.util.HashMap" id="fees">
+               
+               <entry key="spring Framework" value="8000" />
+               <entry key="Python" value="5000" />
+               <entry key="Hibernet" value="2000" />
+      </util:map>
+      
+      <!-- standalone properties -->
+      
+      <util:properties id="dbconfig">
+      <prop key="driver">com.oracle.jdbc.Driver</prop>
+      <prop key="username">pratik</prop>
+      <prop key="password">Samir</prop>
+      <prop key="url">oracle:jdbc://localhost:8080/database</prop>
+      </util:properties>
+    
+         <!-- <ref bean="mybestfriends" /> -->
+    <bean class="com.springcore.standalone.collection.Person" name="person1" >
+    <property name="friends" ref="mybestfriends" /> 
+    <property name="feestructure" ref="fees" />
+    <property name="properties" ref="dbconfig" />
+    
+  
+ </bean>
+        
+ </beans>
+ 
